@@ -1,14 +1,16 @@
 package org.example.metier;
 
 import org.example.dao.Etudiant;
-import org.example.dao.EtudiantDAO;
+import org.example.dao.IEtudiantDAO;
 
 import java.util.List;
 
 public class EtudiantManager {
-    public EtudiantDAO etudiantDAO;
+    // public EtudiantDAO etudiantDAO;
+    // public EtudiantDAODictionary etudiantDAO;
+    private IEtudiantDAO etudiantDAO;
 
-    public EtudiantManager(EtudiantDAO etudiantDAO) {
+    public EtudiantManager(IEtudiantDAO etudiantDAO) {
         this.etudiantDAO = etudiantDAO;
     }
 
@@ -25,5 +27,9 @@ public class EtudiantManager {
 
     public List<Etudiant> getAllEtudiants() {
         return etudiantDAO.getAllEtudiants();
+    }
+
+    public Etudiant updateEtudiant(Integer id, Etudiant updatedEtudiant) {
+        return etudiantDAO.updateEtudiant(id, updatedEtudiant);
     }
 }
